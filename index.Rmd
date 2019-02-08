@@ -1,0 +1,31 @@
+---
+title: "Eviction Report"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = F)
+source("analysis.R")
+```
+This report focuses on eviction in San Francisco. The dataset
+contained `r num_eviction` of eviction noticed
+
+## Zip code analysis
+Here is a table of 10 zip codes with the highest number of evictions.
+
+```{r}
+kable(by_zip, col.names = c("Zip Code", "Number of Evictions"))
+```
+
+## Time Series Analysis 
+We observed important spikes in eviction notices over time.
+```{r}
+month_plot
+```
+
+## Geographic Analysis
+
+```{r, warning=F}
+evictions_plot
+```
